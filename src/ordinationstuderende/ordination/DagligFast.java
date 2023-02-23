@@ -10,8 +10,8 @@ public class DagligFast extends Ordination {
     private Dosis[] doser = new Dosis[4];
 
 
-    public DagligFast(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel, Dosis[] doser) {
-        super(startDen, slutDen, laegemiddel);
+    public DagligFast(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel, Patient patient, Dosis[] doser) {
+        super(startDen, slutDen, laegemiddel, patient);
         this.doser = doser;
     }
 
