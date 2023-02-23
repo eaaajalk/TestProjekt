@@ -36,7 +36,7 @@ public class Patient {
         this.vaegt = vaegt;
     }
 
-    public ArrayList<Ordination> getOrdination() {
+    public ArrayList<Ordination> getOrdinationer() {
         return new ArrayList<>(ordinationer);
     }
     public void addOrdination(Ordination ordination) {

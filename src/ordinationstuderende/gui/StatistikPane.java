@@ -1,13 +1,13 @@
 package ordinationstuderende.gui;
 
-import controller.Controller;
+import ordinationstuderende.controller.Controller;
 import javafx.geometry.Insets;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
-import ordination.Laegemiddel;
+import ordinationstuderende.ordination.Laegemiddel;
 
 public class StatistikPane extends GridPane {
 	private TextField ordinationerPerVægtPerLægemiddel = new TextField();

@@ -2,7 +2,7 @@ package ordinationstuderende.gui;
 
 import java.time.LocalTime;
 
-import controller.Controller;
+import ordinationstuderende.controller.Controller;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -16,8 +16,8 @@ import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import ordination.Laegemiddel;
-import ordination.Patient;
+import ordinationstuderende.ordination.Laegemiddel;
+import ordinationstuderende.ordination.Patient;
 
 public class OpretOrdinationDialog extends Stage {
 

@@ -40,7 +40,12 @@ public class Controller {
 	public PN opretPNOrdination(LocalDate startDen, LocalDate slutDen,
 			Patient patient, Laegemiddel laegemiddel, double antal) {
 		// TODO
-		return null;
+		if (startDen.isAfter(slutDen)) {
+			throw new IllegalArgumentException("StartDato skal være inden slutDato");
+		} else {
+			PN pn = new PN(startDen, slutDen, laegemiddel, patient, antal);
+			return pn;
+		}
 	}
 
 	/**
@@ -80,6 +85,11 @@ public class Controller {
 	 */
 	public void ordinationPNAnvendt(PN ordination, LocalDate dato) {
 		// TODO
+		if (dato.isBefore(ordination.getStartDen()) || dato.isAfter(ordination.getSlutDen())) {
+			throw new IllegalArgumentException("Datoen er ikke indenfor gyldighedsperioden");
+		} else {
+			ordination.givDosis(dato);
+		}
 	}
 
 	/**
@@ -90,7 +100,17 @@ public class Controller {
 	 */
 	public double anbefaletDosisPrDoegn(Patient patient, Laegemiddel laegemiddel) {
 		//TODO
-		return 0;
+		double result = 0;
+		double vaegt = patient.getVaegt();
+		if (vaegt < 25) {
+			result = vaegt * laegemiddel.getEnhedPrKgPrDoegnLet();
+		} else if (vaegt >= 25 && vaegt <= 120) {
+			result = vaegt * laegemiddel.getEnhedPrKgPrDoegnNormal();
+		} else if (vaegt > 120) {
+			result = vaegt * laegemiddel.getEnhedPrKgPrDoegnTung();
+		}
+
+		return result;
 	}
 
 	/**
@@ -101,7 +121,21 @@ public class Controller {
 	public int antalOrdinationerPrVægtPrLægemiddel(double vægtStart,
 			double vægtSlut, Laegemiddel laegemiddel) {
 		// TODO
-		return 0;
+		int result = 0;
+		for (int i = 0; i < getAllPatienter().size(); i++) {
+			Patient p = getAllPatienter().get(i);
+			if (p.getVaegt() >= vægtStart && p.getVaegt() <= vægtSlut) {
+				for (int j = 0; j < p.getOrdinationer().size(); j++) {
+					if (p.getOrdinationer().get(j).getLaegemiddel().equals(laegemiddel)) {
+						result += p.getOrdinationer().get(j).samletDosis();
+					}
+
+				}
+			}
+
+		}
+
+		return result;
 	}
 
 	public List<Patient> getAllPatienter() {

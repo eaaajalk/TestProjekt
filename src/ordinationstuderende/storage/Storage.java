@@ -3,8 +3,6 @@ package ordinationstuderende.storage;
 import java.util.ArrayList;
 import java.util.List;
 
-import ordination.Laegemiddel;
-import ordination.Patient;
 import ordinationstuderende.ordination.Laegemiddel;
 import ordinationstuderende.ordination.Patient;
 
