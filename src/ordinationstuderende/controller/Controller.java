@@ -4,12 +4,12 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
-import ordination.DagligFast;
-import ordination.DagligSkaev;
-import ordination.Laegemiddel;
-import ordination.PN;
-import ordination.Patient;
-import storage.Storage;
+import ordinationstuderende.ordination.DagligFast;
+import ordinationstuderende.ordination.DagligSkaev;
+import ordinationstuderende.ordination.Laegemiddel;
+import ordinationstuderende.ordination.PN;
+import ordinationstuderende.ordination.Patient;
+import ordinationstuderende.storage.Storage;
 
 public class Controller {
 	private Storage storage;
