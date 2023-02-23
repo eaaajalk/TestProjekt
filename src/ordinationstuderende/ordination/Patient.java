@@ -39,12 +39,12 @@ public class Patient {
     public ArrayList<Ordination> getOrdination() {
         return new ArrayList<>(ordinationer);
     }
-    public void addPerson(Ordination ordination) {
+    public void addOrdination(Ordination ordination) {
         if (!ordinationer.contains(ordination)) {
         ordinationer.add(ordination);
     }
     }
-    public void removePerson(Ordination ordination) {
+    public void removeOrdination(Ordination ordination) {
         if (ordinationer.contains(ordination)) {
             ordinationer.remove(ordination);
         }
