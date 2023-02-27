@@ -102,7 +102,7 @@ public class Controller {
 		//TODO
 		double result = 0;
 		double vaegt = patient.getVaegt();
-		if (vaegt < 25) {
+		if (vaegt < 25 && vaegt > 0) {
 			result = vaegt * laegemiddel.getEnhedPrKgPrDoegnLet();
 		} else if (vaegt >= 25 && vaegt <= 120) {
 			result = vaegt * laegemiddel.getEnhedPrKgPrDoegnNormal();
@@ -129,7 +129,6 @@ public class Controller {
 					if (p.getOrdinationer().get(j).getLaegemiddel().equals(laegemiddel)) {
 						result += p.getOrdinationer().get(j).samletDosis();
 					}
-
 				}
 			}
 

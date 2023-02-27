@@ -37,7 +37,6 @@ public class Storage {
 	public List<Laegemiddel> getAllLaegemidler() {
 		return new ArrayList<Laegemiddel>(laegemidler);
 	}
-
 	/**
 	 * Gemmer lægemiddel
 	 */
