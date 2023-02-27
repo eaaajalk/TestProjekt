@@ -2,12 +2,14 @@ package ordinationstuderende.ordination;
 
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 
 
 public class DagligFast extends Ordination {
     // TODO
     private Dosis[] doser = new Dosis[4];
+
 
 
     public DagligFast(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel, Patient patient, Dosis[] doser) {

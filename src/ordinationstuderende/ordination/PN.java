@@ -26,7 +26,7 @@ public class PN extends Ordination {
      */
     public boolean givDosis(LocalDate givesDen) {
         // TODO
-        if (givesDen.isAfter(getStartDen()) && givesDen.isBefore(getSlutDen())) {
+        if (givesDen.isAfter(getStartDen().minusDays(1)) && givesDen.isBefore(getSlutDen().plusDays(1))) {
             dosisDatoerList.add(givesDen);
             antalGangeAnvendt++;
             return true;

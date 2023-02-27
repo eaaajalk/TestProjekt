@@ -4,11 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
-import ordinationstuderende.ordination.DagligFast;
-import ordinationstuderende.ordination.DagligSkaev;
-import ordinationstuderende.ordination.Laegemiddel;
-import ordinationstuderende.ordination.PN;
-import ordinationstuderende.ordination.Patient;
+import ordinationstuderende.ordination.*;
 import ordinationstuderende.storage.Storage;
 
 public class Controller {
@@ -59,7 +55,16 @@ public class Controller {
 			double morgenAntal, double middagAntal, double aftenAntal,
 			double natAntal) {
 		// TODO
-		return null;
+		if (startDen.isAfter(slutDen)) {
+			throw new IllegalArgumentException("StartDato skal være inden slutDato");
+		} else {
+				Dosis[] doser = new Dosis[4];
+				doser[0] = new Dosis(LocalTime.of(6, 0), morgenAntal);
+				doser[1] = new Dosis(LocalTime.of(12, 0), middagAntal);
+			    doser[2] = new Dosis(LocalTime.of(18, 0), aftenAntal);
+			    doser[3] = new Dosis(LocalTime.of(23, 0), natAntal);
+			return new DagligFast(startDen, slutDen, laegemiddel, patient, doser);
+		}
 	}
 
 	/**
@@ -74,7 +79,18 @@ public class Controller {
 			LocalDate slutDen, Patient patient, Laegemiddel laegemiddel,
 			LocalTime[] klokkeSlet, double[] antalEnheder) {
 		// TODO
-		return null;
+		if (startDen.isAfter(slutDen)) {
+			throw new IllegalArgumentException("Startdato må ikke være efter slutdato");
+		}
+		if (klokkeSlet.length != antalEnheder.length) {
+			throw new IllegalArgumentException("Antallet af klokkeslet og antalEnheder skal være ens");
+		}
+
+		DagligSkaev dagligSkaevOrdination = new DagligSkaev(startDen,slutDen,laegemiddel,patient);
+		for (int i = 0; i < klokkeSlet.length; i++) {
+			dagligSkaevOrdination.opretDosis(klokkeSlet[i], antalEnheder[i]);
+		}
+		return dagligSkaevOrdination;
 	}
 
 	/**
