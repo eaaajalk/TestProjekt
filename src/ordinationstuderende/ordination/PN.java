@@ -38,8 +38,8 @@ public class PN extends Ordination {
     public double doegnDosis() {
         // TODO
         Collections.sort(dosisDatoerList);
-        int diff = antalDage();
-        return (antalGangeAnvendt * antalEnheder) / (diff + 1);
+        int diff = (int) (ChronoUnit.DAYS.between(dosisDatoerList.get(0), dosisDatoerList.get(dosisDatoerList.size()-1)));
+        return (antalGangeAnvendt * antalEnheder) / (diff);
     }
 
     @Override
