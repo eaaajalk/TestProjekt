@@ -4,7 +4,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+>>>>>>> c56d5f932e72a0967a5b852f13c839dba64ae1b8
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,6 +18,7 @@ class PNTest {
     PN pn;
     Laegemiddel laegemiddel;
     Patient patient;
+<<<<<<< HEAD
 
     @BeforeEach
     void setup(){
@@ -48,4 +54,38 @@ class PNTest {
         assertEquals(5, actualResult);
     }
 
+=======
+    @BeforeEach
+    void setUp() {
+        laegemiddel = new Laegemiddel("Paracetamol", 1, 1.5, 2, "Ml");
+        patient = new Patient("1234", "Testperson", 1);
+        pn = new PN(LocalDate.of(2023, 2, 27), LocalDate.of(2023, 3, 2), laegemiddel, patient, 2);
+    }
+
+    @Test
+    void givDosisTC1() {
+        boolean actualResult = pn.givDosis(LocalDate.of(2023, 2, 27));
+        assertEquals(true, actualResult);
+    }
+    @Test
+    void givDosisTC2() {
+        boolean actualResult = pn.givDosis(LocalDate.of(2023, 3, 2));
+        assertEquals(true, actualResult);
+    }
+    @Test
+    void givDosisTC3() {
+        boolean actualResult = pn.givDosis(LocalDate.of(2023, 3, 1));
+        assertEquals(true, actualResult);
+    }
+    @Test
+    void givDosisTC4() {
+        boolean actualResult = pn.givDosis(LocalDate.of(2023, 2, 26));
+        assertEquals(false, actualResult);
+    }
+    @Test
+    void givDosisTC5() {
+        boolean actualResult = pn.givDosis(LocalDate.of(2023, 3, 3));
+        assertEquals(false, actualResult);
+    }
+>>>>>>> c56d5f932e72a0967a5b852f13c839dba64ae1b8
 }

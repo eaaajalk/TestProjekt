@@ -32,7 +32,7 @@ public class DagligFast extends Ordination {
     public double doegnDosis() {
         double sum = 0;
         for (int i = 0; i < 4; i++) {
-            sum = doser[i].getAntal();
+            sum += doser[i].getAntal();
         }
         return sum;
     }

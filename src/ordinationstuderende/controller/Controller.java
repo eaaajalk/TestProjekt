@@ -118,14 +118,16 @@ public class Controller {
 		//TODO
 		double result = 0;
 		double vaegt = patient.getVaegt();
-		if (vaegt < 25 && vaegt > 0) {
+		if (vaegt < 1) {
+			throw new RuntimeException("Vægten kan ikke være 0");
+		} else if (vaegt < 25) {
 			result = vaegt * laegemiddel.getEnhedPrKgPrDoegnLet();
 		} else if (vaegt >= 25 && vaegt <= 120) {
 			result = vaegt * laegemiddel.getEnhedPrKgPrDoegnNormal();
 		} else if (vaegt > 120) {
 			result = vaegt * laegemiddel.getEnhedPrKgPrDoegnTung();
-		}
 
+		}
 		return result;
 	}
 
@@ -196,7 +198,9 @@ public class Controller {
 		this.opretPatient("050972-1233", "Hans Jørgensen", 89.4);
 		this.opretPatient("011064-1522", "Ulla Nielsen", 59.9);
 		this.opretPatient("090149-2529", "Ib Hansen", 87.7);
+		this.opretPatient("123456-1234", "Abd", 60);
 
+		this.opretLaegemiddel("Velo, ICECOLD 3", 1, 1.5, 2, "Styk");
 		this.opretLaegemiddel("Acetylsalicylsyre", 0.1, 0.15, 0.16, "Styk");
 		this.opretLaegemiddel("Paracetamol", 1, 1.5, 2, "Ml");
 		this.opretLaegemiddel("Fucidin", 0.025, 0.025, 0.025, "Styk");
