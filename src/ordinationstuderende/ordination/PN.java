@@ -37,9 +37,17 @@ public class PN extends Ordination {
 
     public double doegnDosis() {
         // TODO
+        if (dosisDatoerList.isEmpty()){
+            return 0;
+        } else if (dosisDatoerList.size() == 1) {
+            return (antalGangeAnvendt * antalEnheder);
+        }
+
         Collections.sort(dosisDatoerList);
-        int diff = antalDage();
-        return (antalGangeAnvendt * antalEnheder) / (diff + 1);
+        int diff = (int)(ChronoUnit.DAYS.between(dosisDatoerList.get(0),dosisDatoerList.get(dosisDatoerList.size()-1)));
+
+        return (antalGangeAnvendt * antalEnheder) / (diff);
+
     }
 
     @Override
