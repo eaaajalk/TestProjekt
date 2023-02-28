@@ -4,12 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-<<<<<<< HEAD
 import java.util.ArrayList;
-=======
-import java.time.LocalDateTime;
-import java.time.LocalTime;
->>>>>>> c56d5f932e72a0967a5b852f13c839dba64ae1b8
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,7 +13,6 @@ class PNTest {
     PN pn;
     Laegemiddel laegemiddel;
     Patient patient;
-<<<<<<< HEAD
 
     @BeforeEach
     void setup(){
