@@ -48,7 +48,6 @@ class PNTest {
         assertEquals(5, actualResult);
     }
 
-=======
     @BeforeEach
     void setUp() {
         laegemiddel = new Laegemiddel("Paracetamol", 1, 1.5, 2, "Ml");
@@ -81,5 +80,4 @@ class PNTest {
         boolean actualResult = pn.givDosis(LocalDate.of(2023, 3, 3));
         assertEquals(false, actualResult);
     }
->>>>>>> c56d5f932e72a0967a5b852f13c839dba64ae1b8
 }
